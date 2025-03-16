@@ -1,0 +1,17 @@
+name: Scheduled
+
+on:
+  schedule:
+    - cron: '0 20 * * *'
+  workflow_dispatch:  # Allows manual execution from GitHub
+
+jobs:
+  health_check:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Print Message
+        run: echo "Running health check at 20:00 UTC..."
